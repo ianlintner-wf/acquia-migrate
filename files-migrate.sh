@@ -22,7 +22,7 @@ cd ~/import/files
 
 #run archive
 ssh $source_server "mkdir ~/export"
-ssh $source_server "tar -czvf $file_to_copy $backup_dir"
+ssh $source_server "tar -zcvf $file_to_copy $backup_dir"
 
 #copy the files
 scp $server:$file_to_copy files-private.tar.gz
