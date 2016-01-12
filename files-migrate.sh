@@ -24,6 +24,7 @@ cd ~/import/files
 echo "connecting to $source_server..."
 echo "creating directory if necessary on $source_server..."
 ssh $source_server "mkdir ~/export"
+
 echo "tar $backup_dir to $file_to_copy on $source_server..."
 ssh $source_server "tar -zcvf $file_to_copy $backup_dir"
 
