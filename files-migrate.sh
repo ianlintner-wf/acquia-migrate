@@ -11,7 +11,7 @@
 #variables
 source_server=$2.$3@$1
 backup_dir="/mnt/files/$2.$3/$4"
-file_to_copy=”~/export/files-export.tar.gz”
+file_to_copy=”$HOME/export/files-export.tar.gz”
 target_file=~/import/files/files-export.tar.gz
 
 #create if does not exist
@@ -23,7 +23,7 @@ cd ~/import/files
 #run archive
 echo "connecting to $source_server..."
 echo "creating directory if necessary on $source_server..."
-ssh $source_server "mkdir ~/export"
+ssh $source_server 'mkdir $HOME/export'
 
 echo "tar $backup_dir to $file_to_copy on $source_server..."
 ssh $source_server "tar -zcvf $file_to_copy $backup_dir"
