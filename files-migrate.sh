@@ -21,17 +21,29 @@ mkdir -p ~/import/files
 cd ~/import/files
 
 #run archive
+echo "connecting to $source_server..."
+echo "creating directory if necessary on $source_server..."
 ssh $source_server "mkdir ~/export"
+echo "tar $backup_dir to $file_to_copy on $source_server..."
 ssh $source_server "tar -zcvf $file_to_copy $backup_dir"
 
 #copy the files
-scp $server:$file_to_copy files-private.tar.gz
-tar -xvf files-export.tar.gz
-mv -v files-export/* /mnt/files/$2.$3/$4
+echo "copying $file_to_copy from $source_server to $target_file"
+scp $source_server:$file_to_copy $target_file
+
+echo "extracting file $target_file"
+tar -xvf $target_file
+
+echo "moving files to /mnt/files/$4.$5/$6"
+mv -v files-export/* /mnt/files/$4.$5/$6
 
 #clean up this server
+echo "removing temp directory files-export"
 rm -rf files-export
-rm files-export.tar.gz
+
+echo "removing $target_file"
+rm $target_file
 
 #clean up source server
-ssh $server 'rm $file_to_copy'
+echo "removing archive on $source_server"
+ssh $source_server 'rm $file_to_copy'
