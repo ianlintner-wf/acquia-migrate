@@ -3,7 +3,7 @@
 #Arg2 source server enviornment
 #Arg3 target server site
 #Arg4 target server enviornment
-#Example sql-migrate.sh srv-1234.devcloud.hosting.acquia.com pubsite dev
+#Example import-sql.sh srv-1234.devcloud.hosting.acquia.com pubsite dev
 
 #create if does not exist
 mkdir -p ~/import/sql
