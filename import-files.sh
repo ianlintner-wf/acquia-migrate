@@ -6,7 +6,7 @@
 #Arg5 target server enviornment
 #Arg6 target server files directory
 #Example
-#./files-migrate.sh srv-1234.devcloud.hosting.acquia.com pubsite dev sites/default/private-files pubsite dev sites/default/private-files
+#./import-files.sh srv-1234.devcloud.hosting.acquia.com pubsite dev sites/default/private-files pubsite dev sites/default/private-files
 
 #variables
 source_server=$2.$3@$1
