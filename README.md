@@ -1,5 +1,5 @@
 # acquia-migrate
-Scripts to migrate one acquia cloud enviornment to another
+Scripts to migrate one acquia cloud enviornment to another. Scripts allow for a repeatable transfer of database & files that may be required multiple times during a site migration for testing and then just prior to the final DNS updates to minimize down time or site content freeze.
 
 ## Script Listing
 
