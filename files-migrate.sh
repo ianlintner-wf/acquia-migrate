@@ -10,6 +10,7 @@
 #variables
 source_server=$2.$3@$1
 backup_dir="/mnt/files/$2.$3/$4"
+file_to_copy=”~/export/files-export.tar.gz”
 target_file=~/import/files/files-export.tar.gz
 
 #create if does not exist
@@ -17,9 +18,6 @@ mkdir -p ~/import/files
 
 #cd to import folder
 cd ~/import/files
-
-#archive file
-file_to_copy=”~/export/files-export.tar.gz”
 
 #run archive
 ssh $source_server "mkdir ~/export"
