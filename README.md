@@ -5,6 +5,7 @@ Scripts to migrate one acquia cloud enviornment to another. Scripts allow for a 
 
 ### backup-files.sh
 **Run on existing server/site**
+
 Backup a file directory useful for private files that may not be included or backup after initial import. The backup is stored in ~/export/files-export.tar.gz
 
 ```bash
@@ -13,6 +14,7 @@ Backup a file directory useful for private files that may not be included or bac
 
 ### backup-sql.sh
 **Run on existing server/site**
+
 Backup of sql database on demand copies the last backup to ~/export/sql-export.sql.gz
 
 ```bash
@@ -21,6 +23,7 @@ Backup of sql database on demand copies the last backup to ~/export/sql-export.s
 
 ### files-migrate.sh
 **Run on new server/site**
+
 Transfer via SCP & Import a files backup from another server created by backup-files.sh
 
 ```bash
@@ -29,6 +32,7 @@ Transfer via SCP & Import a files backup from another server created by backup-f
 
 ### sql-migrate.sh
 **Run on new server/site**
+
 Import a sql backup from another server created by backup-sql.sh
 
 ```bash
@@ -37,6 +41,7 @@ Import a sql backup from another server created by backup-sql.sh
 
 ### site-import.sh
 **Run on new server/site**
+
 Perform initial site export/import via drush
 
 ```bash
