@@ -10,6 +10,6 @@ then
 else
     file_to_export="./export/backup.sql.gz"
 fi
-file_to_copy="ls $backup_dir/*$4*.sql.gz | tail -1"
+file_to_copy="ls $backup_dir/*$3*.sql.gz | tail -1"
 echo "$file_to_copy"
 cp $file_to_copy $file_to_export
