@@ -18,8 +18,9 @@ Scripts to migrate one acquia cloud enviornment to another. Scripts allow for a 
 - Copy Database from dev to production
 - Repeat git updates from above for stage & master
 - Verify site is running.
-- Run backup-files.sh & migrate-files.sh as needed during testing & final cut-over
-- Run backup-sql.sh & migrate-sql.sh as needed during testing & final cut-over
+- Run migrate-files.sh as needed during testing & final cut-over
+- Run migrate-sql.sh as needed during testing & final cut-over
+- Cut over DNS
 
 # Script Listing
 
