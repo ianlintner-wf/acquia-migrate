@@ -19,7 +19,7 @@ NC='\033[0m'
 
 json="$(drush @$1.$2 ac-database-instance-backup $3 --format=json)"
 id="$(echo $json | sed "s/},/\n/g" | sed 's/.*"id":"\([^"]*\)".*/\1/')"
-
+echo "task id: $id"
 oldlogs=""
 while [[ $state != "done" && $state != "error" ]]
 do
