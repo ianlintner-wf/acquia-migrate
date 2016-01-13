@@ -8,7 +8,7 @@ if [ ! -z $4 ]
 then
     file_to_export=$4
 else
-    file_to_export="./export/backup.sql.gz
+    file_to_export="./export/backup.sql.gz"
 fi
 
 backup_dir="/mnt/files/$2.$3/backups/on-demand"
@@ -50,6 +50,3 @@ else
   file_to_copy="ls $backup_dir/*$4*.sql.gz | tail -1"
   cp $file_to_copy $file_to_export
 fi
-
-
-
