@@ -15,4 +15,4 @@ else
     file_to_import=$HOME/import/sql/backup.sql.gz
 fi
 
-drush @$1.$2 ah-db-import $file_to_import --db=$3
+drush @$1.$2 ah-db-import $file_to_import --db=$3 --drop --force
