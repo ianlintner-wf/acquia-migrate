@@ -3,6 +3,9 @@
 #Arg2 source server site
 #Arg3 source server environment
 
+#example
+#./transfer-files-backup.sh import-sql.sh srv-1234.devcloud.hosting.acquia.com pubsite prod
+
 source_server=$2.$3@$1
 file_to_copy="./export/files-export.tar.gz"
 target_file="$HOME/import/files/files-export.tar.gz"
