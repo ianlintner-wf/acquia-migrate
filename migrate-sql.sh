@@ -11,7 +11,7 @@
 #ARG7 target db
 
 echo "Running sql export on $1"
-ssh $server "bash -s" < ./export-sql.bash "$2" "$3" "$4"
+ssh $server "bash -s" < ./export-sql.sh "$2" "$3" "$4"
 
 echo "Transfering backup file from $1"
 transfer_sql_backup.sh $1 $2 $3
