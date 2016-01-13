@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #Arg1 source server hostname
 #Arg2 source server site
-#Arg3 source server enviornment
+#Arg3 source server environment
 
 source_server=$2.$3@$1
 file_to_copy=”$HOME/export/files-export.tar.gz”
