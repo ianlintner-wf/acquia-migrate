@@ -16,3 +16,5 @@ cd ~/import/files
 #copy the files
 echo "copying $file_to_copy from $source_server to $target_file"
 scp $source_server:$file_to_copy $target_file
+
+ssh $source_server "rm
