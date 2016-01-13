@@ -1,6 +1,10 @@
 # acquia-migrate
 Scripts to migrate one acquia cloud enviornment to another. Scripts allow for a repeatable transfer of database & files that may be required multiple times during a site migration for testing and then just prior to the final DNS updates to minimize down time or site content freeze.
 
+**This is under current development**
+
+**Note you must have ssh key access to use these scripts. It is reccommended that you use ssh key forwarding ssh -A**
+
 ## Example Workflow
 - Run site-import on new dev enviornment
 - Add additional remote to existing repo (on your computer/laptop)
@@ -19,40 +23,46 @@ Scripts to migrate one acquia cloud enviornment to another. Scripts allow for a 
 
 ## Script Listing
 
-### backup-files.sh
+### export-files.sh
 **Run on existing server/site**
 
 Backup a file directory useful for private files that may not be included or backup after initial import. The backup is stored in ~/export/files-export.tar.gz
 
 ```bash
-./backup-files.sh pubsite prod sites/default/files-private
+./export-files.sh pubsite prod sites/default/files-private
 ```
 
-### backup-sql.sh
+### export-sql.sh
 **Run on existing server/site**
 
 Backup of sql database on demand copies the last backup to ~/export/sql-export.sql.gz
 
 ```bash
-./backup-sql.sh pubsite prod www
+./export-sql.sh pubsite prod pubsitedb
 ```
 
-### files-migrate.sh
-**Run on new server/site**
-
-Transfer via SCP & Import a files backup from another server created by backup-files.sh
+or you can send it via ssh from the new server
 
 ```bash
-./files-migrate.sh srv-1234.devcloud.hosting.acquia.com pubsite prod sites/default/files-private
+ssh pubsite.prod@srv-1234.devcloud.hosting.acquia.com "bash -s" < ./export-sql.bash "pubsite" "prod" "www"
 ```
 
-### sql-migrate.sh
+### import-files.sh
 **Run on new server/site**
 
-Import a sql backup from another server created by backup-sql.sh
+Import a files backup from another server created by backup-files.sh
 
 ```bash
-./sql-migrate.sh srv-1234.devcloud.hosting.acquia.com pubsite dev
+./import-files.sh pubsite prod sites/default/files-private
+```
+
+### import-sql.sh
+**Run on new server/site**
+
+Import a sql backup from another server created by export-sql.sh
+
+```bash
+./sql-migrate.sh pubsite dev pubsite
 ```
 
 ### site-import.sh

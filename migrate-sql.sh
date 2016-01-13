@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#Runs the entire SQL IMPORT Process
+
 #ARG1 source server
 #ARG2 source site
 #ARG3 source env
