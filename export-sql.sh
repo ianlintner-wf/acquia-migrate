@@ -19,7 +19,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-$drush_command="drush @$1.$2 ac-database-instance-backup $3"
+drush_command="drush @$1.$2 ac-database-instance-backup $3"
 json="$($drush_command --format=json)"
 id="$(echo $json | sed "s/},/\n/g" | sed 's/.*"id":"\([^"]*\)".*/\1/')"
 
@@ -28,7 +28,7 @@ id="$(echo $json | sed "s/},/\n/g" | sed 's/.*"id":"\([^"]*\)".*/\1/')"
   do
     # Checking consumes resources, so wait for 3 seconds between checks.
     sleep 3
-    json="$(drush $1 ac-task-info $id --format=json)"
+    json="$(drush @$1.$2 ac-task-info $id --format=json)"
     state="$(echo $json | sed "s/},/\n/g" | sed 's/.*"state":"\([^"]*\)".*/\1/')"
     newlogs="$(echo $json | sed "s/},/\n/g" | sed 's/.*"logs":"\([^"]*\)".*/\1/')"
     if [[ $newlogs != $oldlogs ]]
