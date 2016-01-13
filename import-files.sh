@@ -27,4 +27,4 @@ then
     exit 1
 fi
 echo "removing $file_to_copy on $1"
-rm
+rm $file_to_copy
