@@ -22,4 +22,4 @@ echo "Transfering backup file from $1"
 ./transfer_files_backup.sh $1 $2 $3
 
 echo "Running drush import on @$5.$6 for db $7"
-./import-sql.sh $5 $6 $7
+./import-files.sh $5 $6 $7
