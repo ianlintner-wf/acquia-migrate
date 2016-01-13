@@ -1,6 +1,6 @@
 #Arg1 source server hostname
 #Arg2 source server site
-#Arg2 source server enviornment
+#Arg3 source server enviornment
 #Arg3 source files directory
 #Arg4 target server site
 #Arg5 target server enviornment

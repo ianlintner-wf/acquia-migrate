@@ -1,3 +1,6 @@
+#Arg1 source server hostname
+#Arg2 source server site
+#Arg3 source server enviornment
 
 $source_server=$2.$3@$1
 $export_file="~/export/site.tar.gz"
