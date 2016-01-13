@@ -16,3 +16,6 @@ else
 fi
 
 drush @$1.$2 ah-db-import $file_to_import --db=$3 --drop --force
+
+echo "cleaning up import file"
+rm $file_to_import
