@@ -4,8 +4,8 @@
 #Arg3 source server environment
 
 source_server=$2.$3@$1
-file_to_copy=”$HOME/export/files-export.tar.gz”
-target_file=$HOME/import/files/files-export.tar.gz
+file_to_copy="./export/files-export.tar.gz"
+target_file="$HOME/import/files/files-export.tar.gz"
 
 #create if does not exist
 mkdir -p ~/import/files
