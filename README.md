@@ -21,10 +21,61 @@ Scripts to migrate one acquia cloud enviornment to another. Scripts allow for a 
 - Run backup-files.sh & migrate-files.sh as needed during testing & final cut-over
 - Run backup-sql.sh & migrate-sql.sh as needed during testing & final cut-over
 
-## Script Listing
+# Script Listing
+
+## Site Import
+
+### site-import.sh
+**Run on new server/site**
+
+Perform initial site export/import via drush this should be the first script you run as it performs the initial site
+import. Use the other migrate scripts as you go forward during the migration to make periodic updates.
+
+* Runs drush archive-dump to an archive file in the home directory.
+* scp the file from the original server to the new server.
+* runs drush ah-site-archive-import to perform the final import
+
+```bash
+./site-import.sh srv-1234.devcloud.hosting.acquia.com pubsite prod pubsite prod
+```
+
+## Partial Migrations
+These perform part of the migration process either copy/transfer/import files or sql. Use these as needed to 
+keep the migrated site up to date or for the final update prior when cutting over DNS.
+
+### migrate-files.sh
+**Run on existing server/site**
+
+Note: can run for all files by specifying directory path or individually 
+
+Runs the following scripts in order
+- export-files to create a file archive
+- transfer-files-backup to scp the files from existing server
+- import extracts the tar backup and move the files to target directory
+
+```bash
+./migrate-files.sh srv-1234.devcloud.hosting.acquia.com pubsite prod sites/default/files-private pubsite dev sites/default/files-private
+```
+
+### migrate-sql.sh
+**Run on existing server/site**
+
+NOTE: Currently you must run the backup process manually as the backup command in drush is async.
+Also you must run for each database.
+
+Runs the following scripts in order
+- export-sql to grab the most recent on-demand backup and put in export directory
+- transfer-sql-backup to scp the backup from existing server
+- import runs the drush database import
+
+##Utility Scripts
+These scripts are can be run by themselves to repeat portions of the migration scripts
+
 
 ### export-files.sh
 **Run on existing server/site**
+
+Note: Run multiple times for sites & file directories or attempt to grab all files in sites 
 
 Backup a file directory useful for private files that may not be included or backup after initial import. The backup is stored in ~/export/files-export.tar.gz
 
@@ -34,6 +85,8 @@ Backup a file directory useful for private files that may not be included or bac
 
 ### export-sql.sh
 **Run on existing server/site**
+
+Note: Run multiple for each database
 
 Backup of sql database on demand copies the last backup to ~/export/sql-export.sql.gz
 
@@ -46,6 +99,26 @@ or you can send it via ssh from the new server
 ```bash
 ssh pubsite.prod@srv-1234.devcloud.hosting.acquia.com "bash -s" < ./export-sql.bash "pubsite" "prod" "www"
 ```
+
+### transfer-files-backup.sh
+**Run on new server/site**
+
+Transfer the files backup from another server created by export-files.sh
+
+```bash
+./import-files.sh srv-1234.devcloud.hosting.acquia.com pubsite prod
+```
+
+### transfer-sql-backup.sh
+**Run on new server/site**
+
+Transfer the sql backup from another server created by export-sql.sh
+
+```bash
+./import-files.sh srv-1234.devcloud.hosting.acquia.com pubsite prod
+```
+
+
 
 ### import-files.sh
 **Run on new server/site**
@@ -63,13 +136,4 @@ Import a sql backup from another server created by export-sql.sh
 
 ```bash
 ./sql-migrate.sh pubsite dev pubsite
-```
-
-### site-import.sh
-**Run on new server/site**
-
-Perform initial site export/import via drush
-
-```bash
-./site-import.sh srv-1234.devcloud.hosting.acquia.com pubsite prod pubsite dev
 ```
