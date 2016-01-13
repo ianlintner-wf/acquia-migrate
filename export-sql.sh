@@ -8,9 +8,9 @@ mkdir -p ./export
 
 if [ ! -z $4 ]
 then
-    $file_to_export="$4"
+    file_to_export="$4"
 else
-    $file_to_export="./export/backup.sql.gz"
+    file_to_export="./export/backup.sql.gz"
 fi
 
 backup_dir="/mnt/files/$2.$3/backups/on-demand"
