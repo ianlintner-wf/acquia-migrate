@@ -8,11 +8,11 @@ if [ ! -z $4 ]
 then
     file_to_export=$4
 else
-    file_to_export="./export/backup.sql.gz"
+    file_to_export="$HOME/export/backup.sql.gz"
 fi
 
 backup_dir="/mnt/files/$1.$2/backups/on-demand"
 
-file_to_copy="ls $backup_dir/*$3*.sql.gz | tail -1"
+file_to_copy="$(ls $backup_dir/*$3*.sql.gz | tail -1)"
 echo "$file_to_copy"
 cp $file_to_copy $file_to_export
