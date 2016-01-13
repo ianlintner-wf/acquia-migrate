@@ -8,16 +8,16 @@
 
 if [ ! -z $4 ]
 then
-    $file_to_import=$4
+    file_to_import=$4
 else
-    $file_to_import=./export/backup.sql.gz
+    file_to_import=./export/backup.sql.gz
 fi
 
 if [ ! -z $5 ]
 then
-    $file_to_export=$4
+    file_to_export=$4
 else
-    $file_to_export=$HOME/export/backup.sql.gz
+    file_to_export=$HOME/export/backup.sql.gz
 fi
 
 #create if does not exist
