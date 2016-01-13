@@ -11,7 +11,7 @@ else
     file_to_export="./export/backup.sql.gz"
 fi
 
-backup_dir="/mnt/files/$2.$3/backups/on-demand"
+backup_dir="/mnt/files/$1.$2/backups/on-demand"
 
 file_to_copy="ls $backup_dir/*$3*.sql.gz | tail -1"
 echo "$file_to_copy"
