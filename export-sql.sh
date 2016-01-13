@@ -2,7 +2,7 @@
 #ARG1 site
 #ARG2 env
 #ARG3 database
-#ARG4 export file
+#ARG4 export file (optional) defaults to $HOME/export/backup.sql.gz
 
 if [ ! -z $4 ]
 then
