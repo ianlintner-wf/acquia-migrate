@@ -23,5 +23,5 @@ then
     exit 1
 fi
 echo "removing $file_to_copy on $1"
-rm $file_to_copy
+rm $target_file
 rm -rf $extracted_dir
