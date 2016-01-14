@@ -28,7 +28,6 @@ source_server=$2.$3@$1
 
 file_to_copy=$HOME/export/backup.sql.gz
 
-ssh $source_server "mkdir -p ./export"
 scp $source_server:"$file_to_export" $file_to_import
 
 echo "cleaning up transfered file"
