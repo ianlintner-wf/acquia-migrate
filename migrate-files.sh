@@ -19,7 +19,7 @@ echo "Running sql export on $1"
 ssh $server "bash -s" < ./export-files.sh "$2" "$3" "$4"
 
 echo "Transfering backup file from $1"
-transfer-files-backup.sh $1 $2 $3
+./transfer-files-backup.sh $1 $2 $3
 
 echo "Running drush import on @$5.$6 for db $7"
 ./import-files.sh $5 $6 $7
