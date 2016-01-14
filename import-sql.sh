@@ -15,6 +15,7 @@ else
     file_to_import=$HOME/import/sql/backup.sql.gz
 fi
 
+echo "running import: drush @$1.$2 ah-db-import $file_to_import -l --db=$3 --drop --force"
 drush @$1.$2 ah-db-import $file_to_import -l --db=$3 --drop --force
 
 echo "cleaning up import file"
