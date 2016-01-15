@@ -13,8 +13,8 @@ mkdir -p $extracted_dir
 echo "extracting file $target_file"
 tar -xvf $target_file -C $extracted_dir
 
-echo "moving files to /mnt/files/$1.$2/$3"
-mv -v $extracted_dir/* /mnt/files/$1.$2/$3
+echo "copying files to /mnt/files/$1.$2/$3"
+cp -fRuv $extracted_dir/* /mnt/files/$1.$2/$3
 
 
 read -p "Do you want to delete archive file? " -n 1 -r
