@@ -15,7 +15,7 @@ mkdir -p $export_dir
 if [ ! -z $4 ]
 then
   echo "tar -zcvf --after-date=$4 \"$export_dir/$archive\" -C $file_path ."
-  tar -zcvf "$export_dir/$archive" -C $file_path . --newer $4
+  tar -zcvf "$export_dir/$archive" -C $file_path . --after-date="$4"
 else
   echo "tar -zcvf \"$export_dir/$archive\" -C $file_path ."
   tar -zcvf  "$export_dir/$archive" -C $file_path .
