@@ -18,7 +18,14 @@
 server=$2.$3@$1
 
 echo "Running sql export on $1"
-ssh $server "bash -s" < ./export-files.sh "$2" "$3" "$4" "$8"
+if [ ! -z $8 ]
+then
+  echo "ssh $server \"bash -s\" < ./export-files.sh \"$2\" \"$3\" \"$4\" \"$8\""
+  ssh $server "bash -s" < ./export-files.sh "$2" "$3" "$4" "$8"
+else
+  echo "ssh $server \"bash -s\" < ./export-files.sh \"$2\" \"$3\" \"$4\""
+  ssh $server "bash -s" < ./export-files.sh "$2" "$3" "$4"
+fi
 
 echo "Transfering backup file from $1"
 ./transfer-files-backup.sh $1 $2 $3
