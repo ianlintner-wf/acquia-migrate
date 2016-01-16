@@ -1,6 +1,8 @@
+[![Join the chat at https://gitter.im/ianlintner-wf/acquia-migrate](https://badges.gitter.im/ianlintner-wf/acquia-migrate.svg)](https://gitter.im/ianlintner-wf/acquia-migrate?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 # acquia-migrate
 
-[![Join the chat at https://gitter.im/ianlintner-wf/acquia-migrate](https://badges.gitter.im/ianlintner-wf/acquia-migrate.svg)](https://gitter.im/ianlintner-wf/acquia-migrate?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Scripts to migrate one acquia cloud enviornment to another. Scripts allow for a repeatable transfer of database & files that may be required multiple times during a site migration for testing and then just prior to the final DNS updates to minimize down time or site content freeze.
 
 **This is under current development**
