@@ -57,6 +57,10 @@ Runs the following scripts in order
 ```bash
 ./migrate-files.sh srv-1234.devcloud.hosting.acquia.com pubsite prod sites/default/files-private pubsite dev sites/default/files-private
 ```
+Set a date parameter to only get files after a date uses default tar date input formats
+```bash
+./migrate-files.sh srv-1234.devcloud.hosting.acquia.com pubsite prod sites/default/files-private pubsite dev sites/default/files-private '5 days ago'
+```
 
 ### migrate-sql.sh
 **Run on existing server/site**
@@ -82,6 +86,11 @@ Backup a file directory useful for private files that may not be included or bac
 
 ```bash
 ./export-files.sh pubsite prod sites/default/files-private
+```
+
+Set a date to only grab files after a date useful for periodic migrations with a large file base
+```bash
+./export-files.sh pubsite prod sites/default/files-private 20160101
 ```
 
 ### export-sql.sh
