@@ -44,6 +44,8 @@ import. Use the other migrate scripts as you go forward during the migration to 
 These perform part of the migration process either copy/transfer/import files or sql. Use these as needed to 
 keep the migrated site up to date or for the final update prior when cutting over DNS.
 
+Note: The migration will try to insert the settings file if you already have the settings file setup this may cause an error.
+
 ### migrate-files.sh
 **Run on existing server/site**
 
