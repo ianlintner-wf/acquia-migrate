@@ -26,6 +26,22 @@ Scripts to migrate one acquia cloud enviornment to another. Scripts allow for a 
 - Run migrate-sql.sh as needed during testing & final cut-over
 - Cut over DNS
 
+# Source Control Updates
+The branches will need to be replaced with the existing branches.
+
+- Add the new git remote
+- Branch the existing master to old-master
+- Delete local master
+- Checkout master from the new git repo as master
+- Perform a merge using ours on old-master with new master
+```bash
+git checkout old-master
+git merge -s ours master
+git checkout master
+git merge old-master
+```
+- push master to all remotes
+
 # Script Listing
 
 ## Site Import
